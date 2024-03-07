@@ -18,12 +18,10 @@ Feature: Login Functionality
     Then I'll parse the suggestions and assert them with the search "nike"
     Then I'll parse the results and assert them with the search "nike"
 
-
+  @addTocart
   Scenario: Check Add to cart functionality
     When I'll search the product "Iphone 15 pro max"
     And  I'll click on the product
-    And  I'll get a page for product selected
-    And  Change to the product page
     And  Add that product to the cart
     Then I should get a Confirmation message Added to Cart
     Then Go to Cart

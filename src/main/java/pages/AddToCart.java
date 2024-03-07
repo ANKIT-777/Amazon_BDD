@@ -15,8 +15,7 @@ import java.util.Set;
 public class AddToCart {
     private WebDriver driver;
 
-    @FindBy(css = "input#add-to-cart-button")
-    WebElement addToCartButton;
+
 
     public AddToCart(WebDriver driver){
         this.driver= driver;
@@ -31,32 +30,15 @@ public class AddToCart {
     }
 
     public void select_the_product(){
-        List<WebElement> productList = driver.findElements(By.cssSelector("span.a-size-medium.a-color-base"));
+        List<WebElement> productList = driver.findElements(By.xpath("//a[@class='a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal']"));
         WebElement product = productList.get(1);
         product.click();
     }
 
-    public void newTabforProduct(){
-        Set<String> allwindows = driver.getWindowHandles();
-        for(String s : allwindows){
-            System.out.println(s);
-        }
-    }
 
-    public void switch_tab_to_product_page(){
-        String currentWindow = driver.getWindowHandle();
-        Set<String> allwindows = driver.getWindowHandles();
-
-        for(String s : allwindows){
-            if(!s.equals(currentWindow)){
-                driver.switchTo().window(s);
-            }
-        }
-    }
-
-
-    public void addd_to_cart(){
-        addToCartButton.click();
+    public void addd_to_cart() throws InterruptedException {
+        Thread.sleep(4000);
+        driver.findElement(By.cssSelector("input#add-to-cart-button[type='button']")).click();
     }
 
 }

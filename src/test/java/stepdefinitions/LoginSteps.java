@@ -27,10 +27,6 @@ public class LoginSteps {
 
     @Given("I am on the login page")
     public void goToLoginPage() throws InterruptedException {
-
-        if(driver.getTitle().equals("Amazon.in")){
-            driver.navigate().refresh();
-        }
         driver.findElement(By.id("nav-link-accountList-nav-line-1")).click();
     }
 

@@ -22,18 +22,9 @@ public class AddToCartSteps {
         addToCart.select_the_product();
     }
 
-    @And("I'll get a page for product selected")
-    public void pages(){
-        addToCart.newTabforProduct();
-    }
-
-    @And("Change to the product page")
-    public void changeToProductPage(){
-        addToCart.switch_tab_to_product_page();
-    }
 
     @And("Add that product to the cart")
-    public void addProductToCart(){
+    public void addProductToCart() throws InterruptedException {
         addToCart.addd_to_cart();
     }
 
