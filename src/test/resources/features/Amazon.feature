@@ -11,6 +11,7 @@ Feature: Login Functionality
       | username | password |
       | 8942012908 | 8.PST#z9eQ.5%w/ |
 
+  @login
   Scenario: SearchBar
     When user is on the homepage search bar should be visible
     And I'll pass the keys to search the "nike shoes for men"

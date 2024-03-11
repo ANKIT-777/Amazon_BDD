@@ -30,6 +30,7 @@ public class AddToCart {
         PageFactory.initElements(factory,this);
     }
 
+
     public void search_the_product(String text) throws InterruptedException {
         SearchBar search  = new SearchBar(driver);
         search.checkSearchBox(text);

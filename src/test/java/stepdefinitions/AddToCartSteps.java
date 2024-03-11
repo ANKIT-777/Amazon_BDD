@@ -1,22 +1,26 @@
 package stepdefinitions;
 
-import io.cucumber.java.bs.A;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.AddToCart;
+import pages.LoginPage;
 
 import java.util.List;
 
+import static pages.LoginPage.login_driver;
 import static utility.BrowserSetup.getDriver;
 
 public class AddToCartSteps {
 
-    WebDriver driver = getDriver();
-    AddToCart addToCart = new AddToCart(driver);
+    WebDriver driver;
+
+    AddToCart addToCart ;
 
     @When("I'll search the product {string}")
     public void search_that_product(String text) throws InterruptedException {
+        driver = login_driver();
+        addToCart = new AddToCart(driver);
         addToCart.search_the_product(text);
     }
 

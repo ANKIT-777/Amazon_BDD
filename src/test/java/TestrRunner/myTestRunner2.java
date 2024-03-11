@@ -13,7 +13,7 @@ import org.testng.annotations.DataProvider;
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 
         },
-        tags = "@addTocart"
+        tags = "@login"
 )
 
 public class myTestRunner2 extends AbstractTestNGCucumberTests {

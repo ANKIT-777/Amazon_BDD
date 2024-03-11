@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class LoginPage {
-    private WebDriver driver;
+    private static WebDriver driver;
 
     @FindBy(id = "nav-link-accountList-nav-line-1")
     private WebElement signInButton;
@@ -37,6 +37,8 @@ public class LoginPage {
 
 
 
+
+
     public void inputValues(String username, String password) {
             waitForVisibility(emailInput);
             emailInput.sendKeys(username);
@@ -54,5 +56,9 @@ public class LoginPage {
         Duration customTimeout = Duration.ofSeconds(10);
         WebDriverWait wait = new WebDriverWait(driver, customTimeout);
         wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public static WebDriver login_driver(){
+        return driver;
     }
 }

@@ -13,10 +13,12 @@ import org.openqa.selenium.support.FindBy;
 import pages.LoginPage;
 import pages.SearchBar;
 import utility.BrowserSetup;
+import utility.ConfigLoader;
 
 import javax.swing.*;
 
 import static utility.BrowserSetup.getDriver;
+import static utility.BrowserSetup.setDriver;
 //import utility.BrowserSetup;
 
 public class LoginSteps {
@@ -28,15 +30,8 @@ public class LoginSteps {
 
     @Given("I am on the login page")
     public void goToLoginPage() throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
-        BrowserSetup.setDriver(driver);
-        driver.manage().window().maximize();
-        driver.get("https://www.amazon.in/");
-        if(driver.getTitle().equals("Amazon.in")){
-            driver.navigate().refresh();
-        }
-        login = new LoginPage(driver);
         driver = getDriver();
+        login = new LoginPage(driver);
         driver.findElement(By.id("nav-link-accountList-nav-line-1")).click();
     }
 
