@@ -10,7 +10,8 @@ import org.testng.annotations.DataProvider;
         glue = {"stepdefinitions","Hoocks"},
         plugin = {"html:target/cucumber-reports.html",
                 "rerun:target/rerun.txt",
-                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
+
         },
         tags = "@addTocart"
 )

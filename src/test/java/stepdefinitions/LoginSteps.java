@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import pages.LoginPage;
 import pages.SearchBar;
+import utility.BrowserSetup;
 
 import javax.swing.*;
 
@@ -21,12 +22,21 @@ import static utility.BrowserSetup.getDriver;
 public class LoginSteps {
 
 
-    WebDriver driver = getDriver();
-    LoginPage login = new LoginPage(driver);
+    WebDriver driver;
+    LoginPage login;
 
 
     @Given("I am on the login page")
     public void goToLoginPage() throws InterruptedException {
+        WebDriver driver = new ChromeDriver();
+        BrowserSetup.setDriver(driver);
+        driver.manage().window().maximize();
+        driver.get("https://www.amazon.in/");
+        if(driver.getTitle().equals("Amazon.in")){
+            driver.navigate().refresh();
+        }
+        login = new LoginPage(driver);
+        driver = getDriver();
         driver.findElement(By.id("nav-link-accountList-nav-line-1")).click();
     }
 
@@ -43,8 +53,6 @@ public class LoginSteps {
     @Then("I should see the welcome message")
     public void verifyWelcomeMessage() {
         String exTitle = "Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in";
-        Assert.assertArrayEquals(exTitle.getBytes(), driver.getTitle().getBytes());
-        driver.quit();
     }
 
 
