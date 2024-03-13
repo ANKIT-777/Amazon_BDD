@@ -11,12 +11,13 @@ Feature: Login Functionality
       | username | password |
       | 8942012908 | 8.PST#z9eQ.5%w/ |
 
-  @login
+  @search
   Scenario: SearchBar
     When user is on the homepage search bar should be visible
     And I'll pass the keys to search the "nike shoes for men"
     And I'll parse the suggestion and store them in a list
     And I'll press the search button
+    Then I'll wait for the results
     Then I'll parse the suggestions and assert them with the search "nike"
     Then I'll parse the results and assert them with the search "nike"
 

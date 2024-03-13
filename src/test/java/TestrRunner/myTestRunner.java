@@ -14,7 +14,7 @@ import io.cucumber.junit.CucumberOptions;
 
                     "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
         "html: target/cucumber-reports"},
-        tags = "@login"
+        tags = "@search"
 )
 
 public class myTestRunner {

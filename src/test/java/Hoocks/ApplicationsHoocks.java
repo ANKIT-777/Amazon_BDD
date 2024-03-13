@@ -28,10 +28,12 @@ public class ApplicationsHoocks {
     public void  getBrowser() throws IOException {
         setDriver(new ChromeDriver());
         driver = getDriver();
-        driver.get("https://www.amazon.in/");
+        driver.get("https://www.amazon.in");
         if(driver.getTitle().equals("Amazon.in")){
             driver.navigate().refresh();
         }
+        driver.manage().window().maximize();
+
     }
 
     @After(order = 1)
@@ -44,6 +46,11 @@ public class ApplicationsHoocks {
             byte[] src = ts.getScreenshotAs(OutputType.BYTES);
             scenario.attach(src, "image/png", "screenshot");
         }
+    }
+
+    @After(order = 0)
+    public void teardown(){
+        driver.close();
     }
 
 

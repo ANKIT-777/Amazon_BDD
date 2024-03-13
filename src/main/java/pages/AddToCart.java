@@ -34,7 +34,7 @@ public class AddToCart {
     public void search_the_product(String text) throws InterruptedException {
         SearchBar search  = new SearchBar(driver);
         search.checkSearchBox(text);
-        search.clickOnserachButton();
+        search.clickOnSearchButton();
     }
 
 
